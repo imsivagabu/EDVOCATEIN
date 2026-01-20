@@ -134,13 +134,30 @@
                 inset 0 0 0 1px rgba(255, 255, 255, 0.5);
         }
 
-        /* 5. Text Liquid Gradient */
+        /* 5. Text Liquid Gradient - UPDATED FOR GLOBAL BRAND LOOK */
         .text-liquid-gradient {
-            background: linear-gradient(135deg, #1d1d1f 20%, #4361EE 100%);
+            background: linear-gradient(
+                to right,
+                #1D1D1F 20%,
+                #4361EE 30%,
+                #3046C5 70%,
+                #1D1D1F 80%
+            );
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent; /* Fallback ensure */
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+            background-size: 500% auto;
+            animation: textShine 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes textShine {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
 
         .blob-layer {
@@ -271,7 +288,7 @@
                     <div className="relative z-10 flex-grow w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between px-6 lg:px-20 gap-12 lg:gap-4 my-12 lg:my-0">
                         
                         {/* Left Side: Text Content */}
-                        <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl">
+                        <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-3xl">
                             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/60 bg-white/20 backdrop-blur-2xl shadow-sm text-[#4361EE] text-[11px] font-bold uppercase tracking-widest mb-8 animate-float hover:bg-white/40 transition-colors cursor-default">
                                 <span className="relative flex h-2 w-2">
                                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4361EE] opacity-75"></span>
@@ -280,10 +297,10 @@
                                 Launch Sequence Initiated
                             </div>
 
-                            <h1 className="text-6xl md:text-8xl lg:text-8xl xl:text-9xl font-bold mb-6 leading-tight tracking-tight drop-shadow-sm">
-                                <span className="text-liquid-gradient">India's</span> <br/>
+                            <h1 className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight tracking-tight drop-shadow-sm">
+                                <span className="text-liquid-gradient">India’s</span> <br/>
                                 <span className="text-liquid-gradient relative inline-block">
-                                    Career OS
+                                    Career Decision Engine
                                     {/* Subtle decorative underline */}
                                     <svg className="absolute w-full h-3 bottom-1 left-0 text-[#4361EE] opacity-30" viewBox="0 0 100 10" preserveAspectRatio="none">
                                         <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="2" fill="none" />
@@ -291,9 +308,9 @@
                                 </span>
                             </h1>
 
-                            <p className="text-xl md:text-2xl text-slate-600 max-w-lg mx-auto lg:mx-0 mb-10 font-normal leading-relaxed">
-                                We are constructing the decision engine for 30 million students.
-                                <span className="block mt-2 text-[#4361EE] font-bold">Get ready for the shift.</span>
+                            {/* UPDATED: Darker subline for global brand contrast */}
+                            <p className="text-xl md:text-2xl text-slate-800 max-w-2xl mx-auto lg:mx-0 mb-10 font-normal leading-relaxed">
+                                A national-scale intelligence platform powering data-driven academic and career choices.
                             </p>
                         </div>
 
