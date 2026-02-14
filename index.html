@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EDVOCATE - India’s Career Decision Engine. Launching soon.">
     <title>EDVOCATE - Launching Soon</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/imsivagabu/EDvocate-Logo/f41285224d83b110daddff1a18fbabf97dcbf6af/DP%20Design%20White%20BG%20Icon.png">
+
     <!-- Fonts: Averia Serif Libre Only -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (HTTPS) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,8 +25,9 @@
                     },
                     colors: {
                         brand: {
-                            DEFAULT: '#4361EE',
-                            dark: '#3046C5',
+                            navy: '#16233B',
+                            orange: '#F47C20',
+                            white: '#FFFFFF',
                         }
                     },
                     animation: {
@@ -51,18 +56,18 @@
         }
     </script>
 
-    <!-- React & Babel -->
+    <!-- React & Babel (HTTPS) -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
-    <!-- Icons -->
+    <!-- Icons (HTTPS) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         body {
-            background-color: #F2F2F7;
-            color: #1D1D1F;
+            background-color: #F8F9FA; /* Slightly lighter/cleaner to let navy pop */
+            color: #16233B;
             overflow-x: hidden;
             font-family: 'Averia Serif Libre', serif;
         }
@@ -82,73 +87,73 @@
         
         /* 2. Chromatic Glass Surface (Base for Pill & Timer) */
         .glass-surface {
-            background: rgba(255, 255, 255, 0.2); 
+            background: rgba(255, 255, 255, 0.4); 
             backdrop-filter: blur(60px) saturate(180%);
             -webkit-backdrop-filter: blur(60px) saturate(180%);
             /* Refractive border effect */
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             box-shadow: 
-                0 30px 60px -12px rgba(0, 0, 0, 0.1),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+                0 30px 60px -12px rgba(22, 35, 59, 0.15),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
         }
 
         /* 3. Sculpted Liquid Card (Squircle) - For Social Buttons */
         .liquid-card {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(40px) saturate(140%);
             -webkit-backdrop-filter: blur(40px) saturate(140%);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             box-shadow: 
-                0 10px 40px -10px rgba(67, 97, 238, 0.1), /* Colored ambient shadow */
+                0 10px 40px -10px rgba(244, 124, 32, 0.1), /* Orange ambient shadow */
                 inset 0 1px 0 rgba(255, 255, 255, 0.6);
             transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy spring */
         }
         
         .liquid-card:hover {
             transform: translateY(-5px) scale(1.1);
-            background: rgba(255, 255, 255, 0.35);
-            border-color: #4361EE;
+            background: rgba(255, 255, 255, 0.65);
+            border-color: #F47C20;
             box-shadow: 
-                0 30px 60px -12px rgba(67, 97, 238, 0.3),
+                0 30px 60px -12px rgba(244, 124, 32, 0.25),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.8);
         }
 
         /* 4. Timer Liquid Card (Matching Pill Style) */
         .timer-card {
-            background: rgba(255, 255, 255, 0.2); /* Matching glass-surface */
+            background: rgba(255, 255, 255, 0.4); /* Matching glass-surface */
             backdrop-filter: blur(60px) saturate(180%);
             -webkit-backdrop-filter: blur(60px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             box-shadow: 
-                0 25px 50px -12px rgba(0, 0, 0, 0.1),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+                0 25px 50px -12px rgba(22, 35, 59, 0.1),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
             transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
         .timer-card:hover {
             transform: translateY(-10px) scale(1.05);
-            background: rgba(255, 255, 255, 0.35);
-            border-color: #4361EE;
+            background: rgba(255, 255, 255, 0.65);
+            border-color: #F47C20;
             box-shadow: 
-                0 30px 60px -12px rgba(67, 97, 238, 0.25),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+                0 30px 60px -12px rgba(244, 124, 32, 0.2),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
         }
 
-        /* 5. Text Liquid Gradient - UPDATED FOR GLOBAL BRAND LOOK */
+        /* 5. Text Liquid Gradient - UPDATED FOR NEW PALETTE */
         .text-liquid-gradient {
             background: linear-gradient(
                 to right,
-                #1D1D1F 20%,
-                #4361EE 30%,
-                #3046C5 70%,
-                #1D1D1F 80%
+                #16233B 20%,
+                #F47C20 40%,
+                #16233B 60%,
+                #F47C20 80%
             );
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             text-fill-color: transparent;
             background-size: 500% auto;
-            animation: textShine 6s ease-in-out infinite alternate;
+            animation: textShine 8s ease-in-out infinite alternate;
         }
 
         @keyframes textShine {
@@ -232,12 +237,12 @@
                     <div className="timer-card w-20 h-24 md:w-32 md:h-40 rounded-[2.5rem] flex items-center justify-center mb-4 relative overflow-hidden">
                         {/* Internal highlight */}
                         <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-gradient-to-br from-white/30 to-transparent rotate-45 pointer-events-none"></div>
-                        {/* Changed to Brand Color Text to match Pill Style */}
-                        <span className="text-4xl md:text-7xl font-bold text-[#4361EE] z-10 tracking-tight drop-shadow-sm">
+                        {/* Orange Text for High Contrast */}
+                        <span className="text-4xl md:text-7xl font-bold text-[#F47C20] z-10 tracking-tight drop-shadow-sm">
                             {String(value).padStart(2, '0')}
                         </span>
                     </div>
-                    <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-slate-400 group-hover:text-[#4361EE] transition-all duration-300 transform group-hover:translate-y-1">{label}</span>
+                    <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#16233B]/60 group-hover:text-[#F47C20] transition-all duration-300 transform group-hover:translate-y-1">{label}</span>
                 </div>
             );
 
@@ -256,7 +261,7 @@
                 href={href} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="liquid-card w-14 h-14 flex items-center justify-center rounded-2xl text-slate-500 hover:text-[#4361EE] transition-all duration-500 group relative overflow-hidden shadow-xl"
+                className="liquid-card w-14 h-14 flex items-center justify-center rounded-2xl text-[#16233B]/70 hover:text-[#F47C20] transition-all duration-500 group relative overflow-hidden shadow-xl"
             >
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/40 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 <Icon name={icon} size={22} />
@@ -264,21 +269,32 @@
         );
 
         const App = () => {
-            const targetDate = new Date();
-            targetDate.setDate(targetDate.getDate() + 40);
+            const targetDate = new Date('March 21, 2026 00:00:00');
 
             return (
-                <div className="min-h-screen w-full relative flex flex-col items-center p-6 font-sans selection:bg-[#4361EE] selection:text-white overflow-hidden">
+                <div className="min-h-screen w-full relative flex flex-col items-center p-6 font-sans selection:bg-[#F47C20] selection:text-white overflow-hidden">
                     
-                    {/* Vivid Liquid Background */}
+                    {/* Vivid Liquid Background - Updated to Brand Colors */}
                     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-                        <div className="blob-layer absolute top-[-15%] left-[5%] w-[50vw] h-[50vw] bg-purple-300 rounded-full opacity-60 animate-blob"></div>
-                        <div className="blob-layer absolute top-[10%] right-[-15%] w-[45vw] h-[45vw] bg-[#4361EE] rounded-full opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
-                        <div className="blob-layer absolute bottom-[-20%] left-[-5%] w-[60vw] h-[60vw] bg-cyan-200 rounded-full opacity-50 animate-blob" style={{ animationDelay: '4s' }}></div>
+                        {/* Navy Blob */}
+                        <div className="blob-layer absolute top-[-15%] left-[5%] w-[50vw] h-[50vw] bg-[#16233B] rounded-full opacity-10 animate-blob"></div>
+                        {/* Orange Blob */}
+                        <div className="blob-layer absolute top-[10%] right-[-15%] w-[45vw] h-[45vw] bg-[#F47C20] rounded-full opacity-15 animate-blob" style={{ animationDelay: '2s' }}></div>
+                        {/* Navy Blob 2 */}
+                        <div className="blob-layer absolute bottom-[-20%] left-[-5%] w-[60vw] h-[60vw] bg-[#16233B] rounded-full opacity-10 animate-blob" style={{ animationDelay: '4s' }}></div>
+                    </div>
+
+                    {/* Logo (Top Right) */}
+                    <div className="absolute top-6 right-6 md:top-10 md:right-10 z-50">
+                        <img 
+                            src="https://raw.githubusercontent.com/imsivagabu/EDvocate-Logo/f41285224d83b110daddff1a18fbabf97dcbf6af/DP%20Design%20White%20BG%20Icon.png" 
+                            alt="EDVOCATE Logo" 
+                            className="h-16 w-16 md:h-24 md:w-24 rounded-full shadow-2xl hover:scale-105 transition-transform duration-500 border-4 border-white/20"
+                        />
                     </div>
 
                     {/* Floating Social Media Buttons (Right Side - Fixed) */}
-                    <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-4 animate-float" style={{ animationDuration: '7s' }}>
+                    <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-4 animate-float" style={{ animationDuration: '7s' }}>
                         <SocialButton href="https://x.com/edvocateIN" icon="twitter" />
                         <SocialButton href="https://www.linkedin.com/company/edvocatein/" icon="linkedin" />
                         <SocialButton href="https://www.instagram.com/edvocateIN/" icon="instagram" />
@@ -289,39 +305,34 @@
                         
                         {/* Left Side: Text Content */}
                         <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-3xl">
-                            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/60 bg-white/20 backdrop-blur-2xl shadow-sm text-[#4361EE] text-[11px] font-bold uppercase tracking-widest mb-8 animate-float hover:bg-white/40 transition-colors cursor-default">
+                            {/* Launch Badge: Orange text, Navy border */}
+                            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#16233B]/20 bg-white/30 backdrop-blur-2xl shadow-sm text-[#F47C20] text-[11px] font-bold uppercase tracking-widest mb-8 animate-float hover:bg-white/50 transition-colors cursor-default">
                                 <span className="relative flex h-2 w-2">
-                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4361EE] opacity-75"></span>
-                                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4361EE]"></span>
+                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F47C20] opacity-75"></span>
+                                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F47C20]"></span>
                                 </span>
                                 Launch Sequence Initiated
                             </div>
 
-                            <h1 className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight tracking-tight drop-shadow-sm">
+                            <h1 className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight tracking-tight drop-shadow-sm text-[#16233B]">
                                 <span className="text-liquid-gradient">India’s</span> <br/>
-                                <span className="text-liquid-gradient relative inline-block">
-                                    Career Decision Engine
-                                    {/* Subtle decorative underline */}
-                                    <svg className="absolute w-full h-3 bottom-1 left-0 text-[#4361EE] opacity-30" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                <span className="relative inline-block">
+                                    <span className="text-liquid-gradient">Career Decision Engine</span>
+                                    {/* Orange decorative underline */}
+                                    <svg className="absolute w-full h-3 bottom-1 left-0 text-[#F47C20] opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
                                         <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="2" fill="none" />
                                     </svg>
                                 </span>
                             </h1>
 
-                            {/* UPDATED: Darker subline for global brand contrast */}
-                            <p className="text-xl md:text-2xl text-slate-800 max-w-2xl mx-auto lg:mx-0 mb-10 font-normal leading-relaxed">
+                            {/* UPDATED: Navy text for description */}
+                            <p className="text-xl md:text-2xl text-[#16233B]/80 max-w-2xl mx-auto lg:mx-0 mb-10 font-normal leading-relaxed">
                                 A national-scale intelligence platform powering data-driven academic and career choices.
                             </p>
                         </div>
 
                         {/* Right Side: Branding Pill and Timer */}
                         <div className="w-full lg:w-auto flex flex-col items-center lg:items-end gap-12 lg:gap-10">
-                            {/* Branding Pill */}
-                            <div className="glass-surface px-1 py-1 rounded-full flex items-center gap-0 opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-500 shadow-2xl backdrop-blur-3xl">
-                                <div className="bg-[#4361EE] text-white pl-6 pr-1 py-2.5 rounded-l-full font-bold text-lg tracking-tight shadow-[0_4px_14px_0_rgba(67,97,238,0.39)]">ED</div>
-                                <div className="pl-0.5 pr-6 py-2.5 font-bold text-lg text-[#4361EE] tracking-tight">VOCATE</div>
-                            </div>
-
                             <CountdownTimer targetDate={targetDate} />
                         </div>
 
@@ -329,7 +340,7 @@
 
                     {/* Footer - Positioned in flow */}
                     <div className="w-full text-center z-10 shrink-0 mb-4">
-                        <p className="text-slate-500 text-sm font-medium mix-blend-multiply opacity-80">© EDVOCATE — A product of Rally Ready Pvt Ltd</p>
+                        <p className="text-[#16233B]/60 text-sm font-medium mix-blend-multiply">© EDVOCATE — A product of Rally Ready Pvt Ltd</p>
                     </div>
 
                 </div>
