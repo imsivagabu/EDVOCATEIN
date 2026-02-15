@@ -272,6 +272,64 @@
             </a>
         );
 
+        // --- ABOUT MODAL COMPONENT (NEW) ---
+        const AboutModal = ({ isOpen, onClose }) => {
+            if (!isOpen) return null;
+            return (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                    {/* Backdrop */}
+                    <div className="absolute inset-0 bg-[#16233B]/60 backdrop-blur-sm" onClick={onClose}></div>
+                    
+                    {/* Modal Content */}
+                    <div className="relative w-full max-w-2xl bg-white/95 backdrop-blur-xl border border-white/40 rounded-3xl shadow-2xl p-8 md:p-12 transform transition-all animate-[blob_0.5s_ease-out] overflow-y-auto max-h-[90vh]">
+                         <button onClick={onClose} className="absolute top-4 right-4 text-slate-400 hover:text-[#F47C20] transition-colors">
+                            <Icon name="x" size={24} />
+                        </button>
+
+                        <div className="flex items-center gap-3 mb-8">
+                             <div className="h-8 w-1 bg-[#F47C20] rounded-full"></div>
+                             <h2 className="text-3xl font-bold text-[#16233B]">About EDVOCATE</h2>
+                        </div>
+
+                        <div className="space-y-8 text-slate-700 leading-relaxed">
+                            <p className="text-lg font-medium text-[#16233B]">EDVOCATE is an early-stage, technology-driven education guidance platform.</p>
+                            
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                                    <div className="text-[#F47C20] mb-2"><Icon name="target" size={20} /></div>
+                                    <h3 className="text-[#16233B] font-bold text-sm uppercase tracking-wider mb-2">Overview</h3>
+                                    <p className="text-sm">We build structured tools to support informed academic decision-making across different stages of education.</p>
+                                </div>
+                                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                                    <div className="text-[#F47C20] mb-2"><Icon name="cpu" size={20} /></div>
+                                    <h3 className="text-[#16233B] font-bold text-sm uppercase tracking-wider mb-2">Platform</h3>
+                                    <p className="text-sm">A cloud-native application using scalable infrastructure for data processing, AI-assisted analysis, and secure delivery.</p>
+                                </div>
+                            </div>
+
+                             <div className="flex items-center justify-between p-4 bg-[#F47C20]/5 rounded-xl border border-[#F47C20]/20">
+                                <div className="flex items-center gap-3">
+                                    <div className="relative flex h-3 w-3">
+                                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F47C20] opacity-75"></span>
+                                      <span className="relative inline-flex rounded-full h-3 w-3 bg-[#F47C20]"></span>
+                                    </div>
+                                    <span className="text-sm font-bold text-[#16233B]">Current Status</span>
+                                </div>
+                                <span className="text-sm font-bold text-[#F47C20]">Early Access</span>
+                            </div>
+
+                            <div className="text-center pt-4 border-t border-slate-100">
+                                <a href="mailto:hello@edvocate.in" className="inline-flex items-center gap-2 text-[#16233B] font-bold hover:text-[#F47C20] transition-colors">
+                                    <Icon name="mail" size={16} /> hello@edvocate.in
+                                </a>
+                                <p className="text-xs text-slate-400 mt-2 font-mono">www.edvocate.in</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
         // --- SIGNUP MODAL COMPONENT ---
         const SignupModal = ({ isOpen, onClose }) => {
             const [formData, setFormData] = useState({
@@ -425,6 +483,7 @@
         const App = () => {
             const targetDate = new Date('March 21, 2026 00:00:00');
             const [isModalOpen, setIsModalOpen] = useState(false);
+            const [isAboutOpen, setIsAboutOpen] = useState(false); // New state for About modal
 
             return (
                 <div className="min-h-screen w-full relative flex flex-col items-center p-6 font-sans selection:bg-[#F47C20] selection:text-white overflow-hidden">
@@ -474,16 +533,24 @@
                                 A national-scale intelligence platform powering data-driven academic and career choices.
                             </p>
 
-                            {/* NEW: Call to Action */}
-                            <button 
-                                onClick={() => setIsModalOpen(true)}
-                                className="group relative px-8 py-4 bg-[#F47C20] rounded-full text-white font-bold shadow-[0_10px_20px_-5px_rgba(244,124,32,0.4)] hover:shadow-[0_20px_30px_-5px_rgba(244,124,32,0.6)] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-                            >
-                                <span className="relative z-10 flex items-center gap-2">
-                                    Join Priority List <Icon name="chevron-right" size={20} />
-                                </span>
-                                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                            </button>
+                            <div className="flex flex-col sm:flex-row items-center gap-4">
+                                <button 
+                                    onClick={() => setIsModalOpen(true)}
+                                    className="group relative px-8 py-4 bg-[#F47C20] rounded-full text-white font-bold shadow-[0_10px_20px_-5px_rgba(244,124,32,0.4)] hover:shadow-[0_20px_30px_-5px_rgba(244,124,32,0.6)] hover:-translate-y-1 transition-all duration-300 overflow-hidden w-full sm:w-auto"
+                                >
+                                    <span className="relative z-10 flex items-center justify-center gap-2">
+                                        Join Priority List <Icon name="chevron-right" size={20} />
+                                    </span>
+                                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                                </button>
+                                
+                                <button 
+                                    onClick={() => setIsAboutOpen(true)}
+                                    className="px-6 py-4 rounded-full text-[#16233B] font-bold border border-[#16233B]/20 hover:bg-[#16233B]/5 transition-all w-full sm:w-auto text-sm"
+                                >
+                                    What is EDVOCATE?
+                                </button>
+                            </div>
                         </div>
 
                         <div className="w-full lg:w-auto flex flex-col items-center lg:items-end gap-12 lg:gap-10">
@@ -493,15 +560,21 @@
                     </div>
 
                     {/* Footer */}
-                    <div className="w-full text-center z-10 shrink-0 mb-4 flex flex-col gap-3">
-                        <a href="mailto:Hello@edvocate.in" className="text-[#16233B] font-bold text-lg hover:text-[#F47C20] transition-colors">
-                            Hello@edvocate.in
-                        </a>
-                        <p className="text-[#16233B]/60 text-sm font-medium mix-blend-multiply">© EDVOCATE — A product of Rally Ready Pvt Ltd</p>
+                    <div className="w-full text-center z-10 shrink-0 mb-4 flex flex-col gap-4">
+                        <p className="text-[#16233B]/70 text-sm font-medium italic max-w-xl mx-auto px-4">
+                            "A founder-led education technology initiative built on modern cloud infrastructure."
+                        </p>
+                        <div className="flex flex-col gap-1">
+                            <a href="mailto:Hello@edvocate.in" className="text-[#16233B] font-bold text-lg hover:text-[#F47C20] transition-colors">
+                                Hello@edvocate.in
+                            </a>
+                            <p className="text-[#16233B]/50 text-xs font-medium mix-blend-multiply">© EDVOCATE — A product of Rally Ready Pvt Ltd</p>
+                        </div>
                     </div>
 
-                    {/* Modal Instance */}
+                    {/* Modals */}
                     <SignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+                    <AboutModal isOpen={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
 
                 </div>
             );
